@@ -42,6 +42,31 @@ You can modify the `publish.sh` script for the copy operation (shared drive).
 
 Optionally add 'startup.bat' to Windows Startup Programs (auto start VM on reboot).
 
+## Guest Addons
+
+- Start VM (not headless), goto **Devices - Insert Guest Additions CD image** to mount the ISO image.
+- From the terminal, run the following commands:
+
+	```sh
+	$ sudo su
+	$ apt install gcc make
+	$ mkdir --parents /media/cdrom
+	$ mount /dev/cdrom /media/cdrom
+	$ /media/cdrom/VBoxLinuxAdditions.run
+	$ reboot
+	```
+
+- After reboot:
+
+	```sh
+	$ modinfo vboxguest
+	$ sudo usermod --append --groups vboxsf -- "$USER"
+	$ cat /etc/group | grep "$USER"
+	```
+
+- Host shares should now be mounted in Ubuntu guest under `/media` via the installed `VBoxService` service, set to start on system boot-up.
+- All done.
+
 # Debugging
 
 Uncomment in `build.sh` the following line to inspect the files packaged into `cloud-init.iso`:
