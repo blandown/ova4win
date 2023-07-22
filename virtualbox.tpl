@@ -1,10 +1,10 @@
-set VMNAME=mynewvm
-set VBDIR=D:\Virtualbox
+set VMNAME=ubuntu1
+set VBDIR=C:\Users\User\VirtualBox
 set VMDIR=%VBDIR%\%VMNAME%
-set VMNIC=Realtek PCIe GbE Family Controller #2
+set VMNIC=Realtek PCIe GbE Family Controller
 set VMOVA=jammy-server-cloudimg-amd64.ova
 set VMIMG=ubuntu-jammy-22.04-cloudimg.vdi
-set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"
+set PATH=%PATH%;"D:\Program Files\Oracle\VirtualBox"
 
 mkdir %VMDIR%
 
